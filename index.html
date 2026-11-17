@@ -68,23 +68,7 @@
                       <input id="city-country" class="form-control" />
                     </div>
 
-                    <div class="col-md-6">
-                      <label for="accommodation-name" class="form-label">Nombre Del Alojamiento</label>
-                      <input id="accommodation-name" class="form-control" />
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="accommodation-cost" class="form-label">Costo Del Alojamiento</label>
-                      <input id="accommodation-cost" class="form-control" type="number" />
-                    </div>
-
-
-
-
-
-
-
-
+                    
 
 
                     <div class="col-md-6">
@@ -117,8 +101,18 @@
                     Alojamiento
                   </legend>
                   <div class="alert alert-info mb-0" role="status">
-                    <span class="badge text-bg-info me-2">Próximamente</span>
-                    Aquí podrás agregar el alojamiento de esta ciudad.
+                    <span class="badge text-bg-info me-2"></span>
+
+                    <div class="col-md-6">
+                      <label for="accommodation-name" class="form-label">Nombre Del Alojamiento</label>
+                      <input id="accommodation-name" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="accommodation-cost" class="form-label">Costo Del Alojamiento</label>
+                      <input id="accommodation-cost" class="form-control" type="number" />
+                    </div>
+
                   </div>
                 </fieldset>
 
@@ -145,16 +139,20 @@
         <!-- Tabla de destinos -->
         <div class="tab-pane fade" id="tab-list" role="tabpanel">
           <div class="row">
-            <div class="col-12">
+            <div class="col-100">
               <table class="table table-sm" id="cities-table">
                 <thead>
                   <tr>
                     <th>Nombre</th>
+                    <th>Nombre Del Alojamiento</th>
+                    <th>Costo Del Alojamiento</th>
                     <th>País</th>
                     <th>Duración</th>
                     <th>Fecha ida</th>
                     <th>Fecha vuelta</th>
                     <th>Notas</th>
+                    
+
                   </tr>
                 </thead>
                 <tbody id="cities-tbody"></tbody>

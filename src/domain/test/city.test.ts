@@ -3,7 +3,7 @@ import City, { calculateDurationDays } from "../city.ts";
 import Accommodation from "../accommodation.ts";
 
 
-let accomodation = new Accommodation("hotel",100);
+const accomodation = new Accommodation("hotel",100);
 
 function createCity(): City {
 
