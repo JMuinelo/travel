@@ -1,13 +1,20 @@
 import { describe, beforeEach, test, expect } from "vitest";
 import City, { calculateDurationDays } from "../city.ts";
+import Accommodation from "../accommodation.ts";
+
+
+let accomodation = new Accommodation("hotel",100);
 
 function createCity(): City {
+
+
   return new City(
     "TestCity",
     "TestCountry",
     new Date("2023-05-01"),
     new Date("2023-05-04"),
     "Notas",
+    accomodation, 
   );
 }
 
@@ -22,8 +29,16 @@ describe("City name", () => {
   });
 
   test("should throw error if city name is empty", () => {
-    // TODO: Implementar validación de nombre vacío en la clase City
+    expect(() => {
+      city.setName("");
+  }).toThrow("El nombre de la ciudad debe ser una cadena no vacía")  
   });
+  test("should throw error if city name is non string value", () => {
+    expect( () => {
+      city.setName(accomodation)
+  }).toThrow("El nombre de la ciudad debe ser una cadena no vacía")  
+  });
+
 });
 
 describe("City country", () => {
@@ -33,7 +48,7 @@ describe("City country", () => {
   });
 
   test("should set country correctly", () => {
-    // TODO: Implementar test para validar país
+    expect(city.getCountry()).toBe("TestCountry");
   });
 
   test("should throw error if country is not a string", () => {
@@ -160,6 +175,8 @@ describe("Duration in days", () => {
       "TestCountry",
       new Date("2023-05-01"),
       new Date("2023-05-01"),
+      "nota",
+      accomodation,
     );
     expect(singleDayCity.getDurationDays()).toBe(1);
   });
@@ -170,4 +187,26 @@ describe("Duration in days", () => {
 
     expect(city.getDurationDays()).toBe(0);
   });
+});
+
+describe("accomodation", () => {
+  let city: City;
+  
+  beforeEach(() => {
+    city = createCity();
+   
+  });
+
+  test("should get the correct ACCOMODATION", () => {
+    expect(city.getAccommodation()).toEqual(accomodation);
+  });
+
+  test("should throw error when adding null accommodation", () => {
+    expect(() => {
+      city.addAccommodation(null);
+    }).toThrow("accommodation no puede ser null");
+  });
+
+  
+
 });
